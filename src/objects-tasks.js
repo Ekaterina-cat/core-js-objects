@@ -238,8 +238,14 @@ function fromJSON(proto, json) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  return arr.sort((x, y) => {
+    if (x.country < y.country) return -1;
+    if (x.country > y.country) return 1;
+    if (x.city < y.city) return -1;
+    if (x.city > y.city) return 1;
+    return 0;
+  });
 }
 
 /**
